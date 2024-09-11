@@ -2,37 +2,30 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is the type of polynomial function that is a part of the harmonic oscillator wavefunction?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Binominal",
+        "b": "Hermite",
+        "c": "Monomial",
+        "d": "Trinomial"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "b": "Explanation 1  <a href='https://chem.libretexts.org/Courses/Pacific_Union_College/Quantum_Chemistry/05%3A_The_Harmonic_Oscillator_and_the_Rigid_Rotor/5.06%3A_The_Harmonic-Oscillator_Wavefunctions_involve_Hermite_Polynomials#:~:text=5.6%3A%20The%20Harmonic%2DOscillator%20Wavefunctions%20involve%20Hermite%20Polynomials,-Last%20updated%20Jun'>here</a>"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "The bob of the pendulum moves faster at the lowest position for a larger amplitude.",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "True",
+        "b": "False",
+        "c": "Cannot Say"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Explanation 1  <a href='https://edurev.in/t/156330/Short--Long-Answer-Question-Oscillations#:~:text=Answer%3A%20We%20know%20that%20velocity,simple%20pendulum%20would%20move%20faster.'>here</a>"
       },
-      "correctAnswer": "c",
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]

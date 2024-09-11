@@ -2,37 +2,31 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is the expression for reduced mass, μ for two particles in a system of mass m1 and m2?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "μ = m1m2",
+        "b": "μ = m1×m2m1+m2",
+        "c": "μ = m1+m2",
+        "d": "μ = m1+m2m1×m2"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "b": "Explanation 2   <a href='https://www.toppr.com/ask/question/two-particle-of-masses-m1-and-m2-are-joined-by-a-light-rigid-rod-of/'>here</a>"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "What is the ground state energy of the quantum mechanical harmonic oscillator?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "E0 = hv/2",
+        "b": "E0 = 0  ",
+        "c": "E0 = hv",
+        "d": "E0 = v/2"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Explanation 1  <a href='https://homework.study.com/explanation/the-ground-state-energy-of-a-harmonic-oscillator-is-5-60ev-if-the-oscillator-undergoes-a-transition-from-its-n-3-to-n-2-level-by-emitting-a-photon-what-is-the-wavelength-of-the-photon.html#:~:text=Answer%20and%20Explanation%3A,to%20be%205.6%20e%20V%20.'>here</a>"
       },
-      "correctAnswer": "c",
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
