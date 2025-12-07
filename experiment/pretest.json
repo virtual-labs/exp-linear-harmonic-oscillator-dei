@@ -2,31 +2,73 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "What is the expression for reduced mass, μ for two particles in a system of mass m1 and m2?",
+      "question": "1. What is the expression for reduced mass, μ for two particles in a system of mass m1 and m2?",
       "answers": {
         "a": "μ = m1m2",
-        "b": "μ = m1×m2m1+m2",
-        "c": "μ = m1+m2",
-        "d": "μ = m1+m2m1×m2"
+        "b": "μ = (m1 × m2) / (m1 + m2)",
+        "c": "μ = m1 + m2",
+        "d": "μ = (m1 + m2) / (m1 × m2)"
       },
       "explanations": {
-        "b": "Explanation 2   <a href='https://www.toppr.com/ask/question/two-particle-of-masses-m1-and-m2-are-joined-by-a-light-rigid-rod-of/'>here</a>"
+        "b": "Correct. Reduced mass is μ = (m1 × m2)/(m1 + m2).  <a href='https://www.toppr.com/ask/question/two-particle-of-masses-m1-and-m2-are-joined-by-a-light-rigid-rod-of/'>here</a>"
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "What is the ground state energy of the quantum mechanical harmonic oscillator?",
+      "question": "2. What is the ground state energy of the quantum mechanical harmonic oscillator?",
       "answers": {
-        "a": "E0 = hv/2",
-        "b": "E0 = 0  ",
-        "c": "E0 = hv",
-        "d": "E0 = v/2"
+        "a": "E₀ = hν/2",
+        "b": "E₀ = 0",
+        "c": "E₀ = hν",
+        "d": "E₀ = ν/2"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='https://homework.study.com/explanation/the-ground-state-energy-of-a-harmonic-oscillator-is-5-60ev-if-the-oscillator-undergoes-a-transition-from-its-n-3-to-n-2-level-by-emitting-a-photon-what-is-the-wavelength-of-the-photon.html#:~:text=Answer%20and%20Explanation%3A,to%20be%205.6%20e%20V%20.'>here</a>"
+        "a": "Correct. Ground state energy of a quantum harmonic oscillator is (1/2)hν. <a href='https://homework.study.com/explanation/the-ground-state-energy-of-a-harmonic-oscillator-is-5-60ev...'>here</a>"
       },
       "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. For a quantum harmonic oscillator, what is the formula for the energy of the nth state?",
+      "answers": {
+        "a": "En = nhν",
+        "b": "En = (n + 1/2)hν",
+        "c": "En = n²hν",
+        "d": "En = hν / n"
+      },
+      "explanations": {
+        "b": "Correct. Quantum harmonic oscillator energy levels are En = (n + 1/2)hν."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. What does the wavefunction of the first excited state (n = 1) of the harmonic oscillator contain?",
+      "answers": {
+        "a": "No nodes",
+        "b": "Exactly one node",
+        "c": "Two nodes",
+        "d": "Infinitely many nodes"
+      },
+      "explanations": {
+        "b": "Correct. The nth state of the harmonic oscillator has n nodes. For n=1, there is one node."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. In a linear harmonic oscillator, what determines the frequency of oscillation?",
+      "answers": {
+        "a": "Mass only",
+        "b": "Amplitude only",
+        "c": "Spring constant (k) and mass (m)",
+        "d": "Energy level only"
+      },
+      "explanations": {
+        "c": "Correct. The frequency is ω = √(k/m), determined by spring constant and mass."
+      },
+      "correctAnswer": "c",
       "difficulty": "beginner"
     }
   ]
