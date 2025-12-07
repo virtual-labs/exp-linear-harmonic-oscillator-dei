@@ -10,7 +10,7 @@
         "d": "Trinomial"
       },
       "explanations": {
-        "b": "Explanation 1  <a href='https://chem.libretexts.org/Courses/Pacific_Union_College/Quantum_Chemistry/05%3A_The_Harmonic_Oscillator_and_the_Rigid_Rotor/5.06%3A_The_Harmonic-Oscillator_Wavefunctions_involve_Hermite_Polynomials#:~:text=5.6%3A%20The%20Harmonic%2DOscillator%20Wavefunctions%20involve%20Hermite%20Polynomials,-Last%20updated%20Jun'>here</a>"
+        "b": "Explanation 1  <a href='https://chem.libretexts.org/...'>here</a>"
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
@@ -23,7 +23,49 @@
         "c": "Cannot Say"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='https://edurev.in/t/156330/Short--Long-Answer-Question-Oscillations#:~:text=Answer%3A%20We%20know%20that%20velocity,simple%20pendulum%20would%20move%20faster.'>here</a>"
+        "a": "Explanation 1  <a href='https://edurev.in/...'>here</a>"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "For a quantum harmonic oscillator, what is the spacing between adjacent energy levels?",
+      "answers": {
+        "a": "It decreases with increasing n",
+        "b": "It increases with increasing n",
+        "c": "It remains constant",
+        "d": "It becomes zero at high n"
+      },
+      "explanations": {
+        "c": "Correct. Energy levels are equally spaced by hν."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which physical quantity determines the angular frequency ω of a harmonic oscillator?",
+      "answers": {
+        "a": "Only the amplitude",
+        "b": "Only the mass of the particle",
+        "c": "The spring constant k and mass m",
+        "d": "Only the energy level"
+      },
+      "explanations": {
+        "c": "Correct. ω = √(k/m)."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "How many nodes does the ground state wavefunction of a quantum harmonic oscillator have?",
+      "answers": {
+        "a": "Zero",
+        "b": "One",
+        "c": "Two",
+        "d": "Infinite"
+      },
+      "explanations": {
+        "a": "Correct. The ground state (n = 0) has no nodes."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
