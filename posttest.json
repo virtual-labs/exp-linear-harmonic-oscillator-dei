@@ -1,0 +1,74 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. What is the type of polynomial function that is a part of the harmonic oscillator wavefunction?",
+      "answers": {
+        "a": "Binominal",
+        "b": "Hermite",
+        "c": "Monomial",
+        "d": "Trinomial"
+      },
+      "explanations": {
+        "b": "Explanation 1  <a href='https://chem.libretexts.org/...'>here</a>"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. The bob of the pendulum moves faster at the lowest position for a larger amplitude.",
+      "answers": {
+        "a": "True",
+        "b": "False",
+        "c": "Cannot Say"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='https://edurev.in/...'>here</a>"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. For a quantum harmonic oscillator, what is the spacing between adjacent energy levels?",
+      "answers": {
+        "a": "It decreases with increasing n",
+        "b": "It increases with increasing n",
+        "c": "It remains constant",
+        "d": "It becomes zero at high n"
+      },
+      "explanations": {
+        "c": "Correct. Energy levels are equally spaced by hν."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. Which physical quantity determines the angular frequency ω of a harmonic oscillator?",
+      "answers": {
+        "a": "Only the amplitude",
+        "b": "Only the mass of the particle",
+        "c": "The spring constant k and mass m",
+        "d": "Only the energy level"
+      },
+      "explanations": {
+        "c": "Correct. ω = √(k/m)."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. How many nodes does the ground state wavefunction of a quantum harmonic oscillator have?",
+      "answers": {
+        "a": "Zero",
+        "b": "One",
+        "c": "Two",
+        "d": "Infinite"
+      },
+      "explanations": {
+        "a": "Correct. The ground state (n = 0) has no nodes."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+  ]
+}
