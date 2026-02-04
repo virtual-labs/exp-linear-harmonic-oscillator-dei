@@ -10,11 +10,16 @@ Before you begin, ensure you understand the basic concepts of quantum mechanics 
 
 When you open the simulation, you will see three main panels:
 
-| Panel | Location | Contents |
-|-------|----------|----------|
-| **Control Panel** | Left | Quantum parameters, preset states, quick actions, state amplitude sliders |
-| **Visualization** | Center | Main canvas showing wavefunction, phasor clocks at bottom |
-| **Data & Info** | Right | Live quantum data table, instructions, key concepts |
+<table style="width: 100%; border-collapse: collapse; margin: 15px 0; font-family: Arial, sans-serif;">
+<tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Panel</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Location</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Contents</th>
+</tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>Control Panel</strong></td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Left</td><td style="padding: 8px; border: 1px solid #ddd;">Quantum parameters, preset states, quick actions, state amplitude sliders</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>Visualization</strong></td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Center</td><td style="padding: 8px; border: 1px solid #ddd;">Main canvas showing wavefunction, phasor clocks at bottom</td></tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>Data & Info</strong></td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Right</td><td style="padding: 8px; border: 1px solid #ddd;">Live quantum data table, instructions, key concepts</td></tr>
+</table>
 
 ---
 
@@ -22,14 +27,19 @@ When you open the simulation, you will see three main panels:
 
 Click on the preset buttons to observe different quantum behaviors:
 
-| Preset | Description | What to Observe |
-|--------|-------------|-----------------|
-| **Ground State (n=0)** | Lowest energy state | No nodes, Gaussian-shaped probability |
-| **First Excited (n=1)** | First excited state | One node at center |
-| **Superposition** | Equal mix of n=0 and n=1 | Oscillating probability density |
-| **Coherent State** | Classical-like oscillation | Wave packet moves back and forth |
-| **Equal Mix** | All states equally weighted | Complex interference pattern |
-| **High Energy** | Maximum quantum number | Many nodes visible |
+<table style="width: 100%; border-collapse: collapse; margin: 15px 0; font-family: Arial, sans-serif;">
+<tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Preset</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Description</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">What to Observe</th>
+</tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>Ground State (n=0)</strong></td><td style="padding: 8px; border: 1px solid #ddd;">Lowest energy state</td><td style="padding: 8px; border: 1px solid #ddd;">No nodes, Gaussian-shaped probability</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>First Excited (n=1)</strong></td><td style="padding: 8px; border: 1px solid #ddd;">First excited state</td><td style="padding: 8px; border: 1px solid #ddd;">One node at center</td></tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>Superposition</strong></td><td style="padding: 8px; border: 1px solid #ddd;">Equal mix of n=0 and n=1</td><td style="padding: 8px; border: 1px solid #ddd;">Oscillating probability density</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>Coherent State</strong></td><td style="padding: 8px; border: 1px solid #ddd;">Classical-like oscillation</td><td style="padding: 8px; border: 1px solid #ddd;">Wave packet moves back and forth</td></tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>Equal Mix</strong></td><td style="padding: 8px; border: 1px solid #ddd;">All states equally weighted</td><td style="padding: 8px; border: 1px solid #ddd;">Complex interference pattern</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>High Energy</strong></td><td style="padding: 8px; border: 1px solid #ddd;">Maximum quantum number</td><td style="padding: 8px; border: 1px solid #ddd;">Many nodes visible</td></tr>
+</table>
 
 ---
 
@@ -83,10 +93,15 @@ The phasor clocks at the bottom of the canvas represent each eigenstate:
 
 Toggle between two visualization modes:
 
-| Mode | Button | What It Shows |
-|------|--------|---------------|
-| **Real/Imaginary** | 📈 Real/Imaginary | Orange line: Real part of ψ; Cyan line: Imaginary part |
-| **Density/Phase** | 🌈 Density/Phase | Height shows probability density |ψ|²; Color shows local phase |
+<table style="width: 100%; border-collapse: collapse; margin: 15px 0; font-family: Arial, sans-serif;">
+<tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Mode</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Button</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">What It Shows</th>
+</tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>Real/Imaginary</strong></td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">📈 Real/Imaginary</td><td style="padding: 8px; border: 1px solid #ddd;">Orange line: Real part of ψ; Cyan line: Imaginary part</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><strong>Density/Phase</strong></td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">🌈 Density/Phase</td><td style="padding: 8px; border: 1px solid #ddd;">Height shows probability density |ψ|²; Color shows local phase</td></tr>
+</table>
 
 ---
 
@@ -131,28 +146,39 @@ Observe the **Live Quantum Data** panel on the right:
 
 Fill in the observation table below:
 
-| S.No | State (n) | Amplitude | Probability |c<sub>n</sub>|² | Energy E<sub>n</sub>/ℏω |
-|------|-----------|-----------|--------------------------|-------------------------|
-| 1 | n = 0 | | | |
-| 2 | n = 1 | | | |
-| 3 | n = 2 | | | |
-| 4 | n = 3 | | | |
-| 5 | n = 4 | | | |
-| 6 | n = 5 | | | |
-| 7 | n = 6 | | | |
-| 8 | n = 7 | | | |
+<table style="width: 100%; border-collapse: collapse; margin: 15px 0; font-family: Arial, sans-serif;">
+<tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">S.No</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">State (n)</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Amplitude</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Probability |c<sub>n</sub>|²</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Energy E<sub>n</sub>/ℏω</th>
+</tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">1</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 0</td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">2</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 1</td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td></tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">3</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 2</td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">4</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 3</td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td></tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">5</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 4</td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">6</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 5</td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td></tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">7</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 6</td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">8</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 7</td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td><td style="padding: 8px; border: 1px solid #ddd;"></td></tr>
+</table>
 
 ---
 
 ### Quick Actions Reference
 
-| Button | Function |
-|--------|----------|
-| 🗑️ **Zero All** | Sets all amplitudes to zero |
-| 📐 **Normalize** | Normalizes wavefunction so Σ|c<sub>n</sub>|² = 1 |
-| 🎲 **Random** | Creates a random superposition |
-| 🔄 **Reset** | Resets simulation to default state |
-| ⏸️ **Pause/Resume** | Stops or continues time evolution |
+<table style="width: 100%; border-collapse: collapse; margin: 15px 0; font-family: Arial, sans-serif;">
+<tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Button</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Function</th>
+</tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">🗑️ <strong>Zero All</strong></td><td style="padding: 8px; border: 1px solid #ddd;">Sets all amplitudes to zero</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">📐 <strong>Normalize</strong></td><td style="padding: 8px; border: 1px solid #ddd;">Normalizes wavefunction so Σ|c<sub>n</sub>|² = 1</td></tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">🎲 <strong>Random</strong></td><td style="padding: 8px; border: 1px solid #ddd;">Creates a random superposition</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">🔄 <strong>Reset</strong></td><td style="padding: 8px; border: 1px solid #ddd;">Resets simulation to default state</td></tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">⏸️ <strong>Pause/Resume</strong></td><td style="padding: 8px; border: 1px solid #ddd;">Stops or continues time evolution</td></tr>
+</table>
 
 ---
 

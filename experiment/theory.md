@@ -60,12 +60,17 @@ where:
 - **n = 0, 1, 2, 3, ...** is the quantum number
 - Each energy level is equally spaced by **ℏω**
 
-| Quantum Number (n) | Energy Level | Energy Value |
-|-------------------|--------------|--------------|
-| n = 0 (Ground State) | E₀ | ½ℏω |
-| n = 1 (First Excited) | E₁ | 3/2 ℏω |
-| n = 2 | E₂ | 5/2 ℏω |
-| n = 3 | E₃ | 7/2 ℏω |
+<table style="width: 100%; border-collapse: collapse; margin: 15px 0; font-family: Arial, sans-serif;">
+<tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Quantum Number (n)</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Energy Level</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Energy Value</th>
+</tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 0 (Ground State)</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">E₀</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">½ℏω</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 1 (First Excited)</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">E₁</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">3/2 ℏω</td></tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 2</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">E₂</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">5/2 ℏω</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 3</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">E₃</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">7/2 ℏω</td></tr>
+</table>
 
 **Key Insight:** Unlike classical mechanics, the ground state energy is **not zero** but **½ℏω** - this is called **zero-point energy**.
 
@@ -82,12 +87,17 @@ where:
 - **H<sub>n</sub>** are the Hermite polynomials
 - **α = √(mω/ℏ)**
 
-| State | Hermite Polynomial | Nodes |
-|-------|-------------------|-------|
-| n = 0 | H₀ = 1 | 0 nodes |
-| n = 1 | H₁ = 2x | 1 node |
-| n = 2 | H₂ = 4x² - 2 | 2 nodes |
-| n = 3 | H₃ = 8x³ - 12x | 3 nodes |
+<table style="width: 100%; border-collapse: collapse; margin: 15px 0; font-family: Arial, sans-serif;">
+<tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">State</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Hermite Polynomial</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Nodes</th>
+</tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 0</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">H₀ = 1</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">0 nodes</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 1</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">H₁ = 2x</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">1 node</td></tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 2</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">H₂ = 4x² - 2</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">2 nodes</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">n = 3</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">H₃ = 8x³ - 12x</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">3 nodes</td></tr>
+</table>
 
 ---
 
@@ -120,12 +130,17 @@ In the simulation, you can create coherent states using the **Coherent(α)** but
 
 ### 7. Key Differences: Classical vs Quantum
 
-| Aspect | Classical | Quantum |
-|--------|-----------|---------|
-| Energy | Continuous | Quantized (discrete levels) |
-| Ground State | E = 0 possible | E₀ = ½ℏω (zero-point energy) |
-| Position | Definite trajectory | Probability distribution |
-| Wave Nature | No | Yes (wavefunction) |
+<table style="width: 100%; border-collapse: collapse; margin: 15px 0; font-family: Arial, sans-serif;">
+<tr style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Aspect</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Classical</th>
+<th style="padding: 12px 8px; border: 1px solid #ddd; text-align: center;">Quantum</th>
+</tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Energy</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Continuous</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Quantized (discrete levels)</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Ground State</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">E = 0 possible</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">E₀ = ½ℏω (zero-point energy)</td></tr>
+<tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Position</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Definite trajectory</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Probability distribution</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Wave Nature</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">No</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Yes (wavefunction)</td></tr>
+</table>
 
 ---
 
