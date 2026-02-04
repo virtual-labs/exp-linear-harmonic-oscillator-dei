@@ -1,412 +1,294 @@
-
 <!DOCTYPE html>
-
-<!--
-	Quantum Harmonic Oscillator, copyright 2014-2015, Daniel V. Schroeder
-	
-	Permission is hereby granted, free of charge, to any person obtaining a copy of 
-	this software and associated data and documentation (the "Software"), to deal in 
-	the Software without restriction, including without limitation the rights to 
-	use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
-	of the Software, and to permit persons to whom the Software is furnished to do 
-	so, subject to the following conditions:
-
-	The above copyright notice and this permission notice shall be included in all 
-	copies or substantial portions of the Software.
-
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-	INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
-	PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR 
-	ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-	OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
-	OTHER DEALINGS IN THE SOFTWARE.
-
-	Except as contained in this notice, the name of the author shall not be used in 
-	advertising or otherwise to promote the sale, use or other dealings in this 
-	Software without prior written authorization.
-
-	Based in part on the Mac Classic program "Schrodinger" written long ago, and
-	in part on the 1-D Quantum Mechanics [Java] Applet by Paul Falstad.
--->
-
-<html>
+<html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<title>Quantum Harmonic Oscillator</title>
-	<style>
-	.custombutton {		/* this class turns an ordinary link into a nice attractive push-button */
-		display: inline-block; 
-		width:92px; 
-		height:24px; 
-		line-height:24px; 
-		font-size:15px; 
-		font-family:Arial, sans-serif; 
-		text-align:center;
-		color:black; 
-		background:-webkit-linear-gradient(white,#eeeeee,#eeeeee,#e0e0e0);
-		background:linear-gradient(white,#eeeeee,#eeeeee,#e0e0e0);
-		text-decoration:none; 
-		border:1px solid gray; 
-		border-radius: 5px;
-		-webkit-user-select: none;
-		-moz-user-select: -moz-none;
-		-ms-user-select: none;
-		user-select: none;
-		cursor: pointer;
-		-webkit-tap-highlight-color: rgba(0,0,0,0);
-	}
-	.custombutton:active {
-		background:-webkit-linear-gradient(#909090,#808080,#808080,#707070);
-		background:linear-gradient(#909090,#808080,#808080,#707070);
-	}
-	input[type=range] {-webkit-user-select: none; user-select: none;}
-	sup {position:relative; vertical-align:bottom; bottom:0.4em; font-size:0.75em;}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Harmonic Oscillator | Virtual Lab</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body style="background-color:#d0d0d0; font-family:sans-serif; font-size:15px; line-height:18px;">
+<body>
 
-<div style="width:600px; margin-left:auto; margin-right:auto;">
+    <div class="bg-animation"></div>
 
-	<h1 style="font-size:18pt; text-align:center; margin-bottom:10px;">Quantum Harmonic Oscillator</h1>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">⚛️</div>
+                <div class="logo-text">
+                    <h1>Quantum Harmonic Oscillator</h1>
+                    <span>Virtual Physics Laboratory</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="status-badge" id="statusBadge">
+                    <span class="status-dot"></span>
+                    <span id="statusText">Running</span>
+                </div>
+                <button class="btn btn-secondary" onclick="resetSimulation()">
+                    🔄 Reset
+                </button>
+                <button class="btn btn-primary" id="playPauseBtn" onclick="startStop()">
+                    ⏸️ Pause
+                </button>
+            </div>
+        </div>
+    </header>
 
-	<canvas id="theCanvas" width="600" height="300">Error!</canvas>
+    <!-- Main Content -->
+    <div class="main-container">
 
-	<div style="text-align:center; -webkit-text-size-adjust: 100%;">
-		<a href="javascript:void(0)" class="custombutton" id="pauseButton" value="Pause" 
-				onclick="startStop();" ontouchstart="">Pause</a>
-		&nbsp;Speed:
-		<input type="range" id="speedSlider" min="0" max="0.2" step="0.001" value="0.05">
-		&nbsp
-		<input type="radio" name="plotType" id="realImag" onclick="paintCanvas();">Real/imag&nbsp;
-		<input type="radio" name="plotType" checked onclick="paintCanvas();">Density/phase
-	</div>
-	<div style="text-align:center; -webkit-text-size-adjust: 100%; margin-top:4px;">
-		<a href="javascript:void(0)" class="custombutton"
-				onclick="zero();" ontouchstart="">Zero</a>
-		<a href="javascript:void(0)" class="custombutton"
-				onclick="normalizePsi();" ontouchstart="">Normalize</a>
-		&nbsp;&nbsp;
-		<a href="javascript:void(0)" class="custombutton"
-				onclick="coherent();" ontouchstart="">Coherent(&alpha;)</a>
-		&alpha; = <span id="alphaReadout">1.0</span> 
-		<input type="range" id="alphaSlider" min="0" max="4" step="0.1" value="1" 
-				onchange="adjustAlpha();" oninput="adjustAlpha();">
-	</div>
-</div>
+        <!-- Left Panel - Controls -->
+        <div class="left-panel">
 
-<script>
+            <!-- Quantum Parameters -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">⚙️</div>
+                    <h3 class="card-title">Quantum Parameters</h3>
+                </div>
 
-	var theCanvas = document.getElementById("theCanvas");
-	var theContext = theCanvas.getContext("2d");
-	var pauseButton = document.getElementById("pauseButton");
-	var speedSlider = document.getElementById("speedSlider");
-	var realImag = document.getElementById("realImag");
-	var alphaSlider = document.getElementById("alphaSlider");
-	var alphaReadout = document.getElementById("alphaReadout");
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Animation Speed</span>
+                        <span class="control-value" id="speedValue">0.05</span>
+                    </div>
+                    <input type="range" id="speedSlider" min="0" max="0.2" step="0.001" value="0.05"
+                        oninput="updateSpeed()">
+                </div>
 
-	var iMax = Number(theCanvas.width);	// max index in function arrays (so array size is iMax+1)
-	var pxPerX = 60;			// number of pixels per conventional x unit
-	var clockSpaceFraction = 0.25;	// fraction of vertical space taken up by clocks
-	var clockRadiusFraction = 0.45;	// as fraction of width or height of clock space
-	var clockSpaceHeight = theCanvas.height * clockSpaceFraction;
-	var clockPixelRadius = clockSpaceHeight * clockRadiusFraction;
-	var psi = {re:(new Array(iMax+1)), im:(new Array(iMax+1))}
-	var nMax = 7;				// maximum energy quantum number
-	var eigenPsi = new Array(nMax+1);
-	var amplitude = new Array(nMax+1);		// amplitudes of the eigenfunctions in psi
-	var phase = new Array(nMax+1);			// phases of the eigenfunctions in psi
-	var nColors = 360;
-	var phaseColor = new Array(nColors+1);
-	var running = true;
-	var mouseIsDown = false;
-	var mouseClock;
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Coherent State (α)</span>
+                        <span class="control-value" id="alphaValue">1.0</span>
+                    </div>
+                    <input type="range" id="alphaSlider" min="0" max="4" step="0.1" value="1" oninput="updateAlpha()">
+                </div>
 
-	// Add mouse/touch handlers; down/start must be inside the canvas but drag can go outside it:
-	theCanvas.addEventListener('mousedown', mouseDown, false);
-	document.body.addEventListener('mousemove', mouseMove, false);
-	document.body.addEventListener('mouseup', mouseUp, false);	// button release could occur outside canvas
-	theCanvas.addEventListener('touchstart', touchStart, false);
-	document.body.addEventListener('touchmove', touchMove, false);
-	document.body.addEventListener('touchend', mouseUp, false);
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Max Energy Level (n)</span>
+                    </div>
+                    <div class="number-input">
+                        <button class="number-btn" onclick="adjustNMax(-1)">−</button>
+                        <input type="number" id="nMaxInput" value="7" min="1" max="10" onchange="updateNMax()">
+                        <button class="number-btn" onclick="adjustNMax(1)">+</button>
+                    </div>
+                </div>
 
-	init();
-	nextFrame();
+                <!-- Quick Actions inside Quantum Parameters -->
+                <div class="quick-actions">
+                    <button class="action-btn" onclick="zero()">
+                        <span>🗑️</span>
+                        Zero
+                    </button>
+                    <button class="action-btn" onclick="normalizePsi()">
+                        <span>📐</span>
+                        Normalize
+                    </button>
+                    <button class="action-btn" onclick="randomState()">
+                        <span>🎲</span>
+                        Random
+                    </button>
+                </div>
+            </div>
 
-	function init() {
-		// Initialize eigenfunctions (simple harmonic oscillator):
-		for (var n=0; n<=nMax; n++) {
-			eigenPsi[n] = new Array(iMax+1);
-		}
-		for (var i=0; i<=iMax; i++) {
-			var x = (i - iMax/2) / pxPerX;
-			eigenPsi[0][i] = Math.exp(-x*x/2);
-			eigenPsi[1][i] = Math.sqrt(2) * x * eigenPsi[0][i];
-			eigenPsi[2][i] = (1/Math.sqrt(2)) * (2*x*x - 1) * eigenPsi[0][i];
-			eigenPsi[3][i] = (1/Math.sqrt(3)) * (2*x*x*x - 3*x) * eigenPsi[0][i];
-			eigenPsi[4][i] = (1/Math.sqrt(24)) * (4*x*x*x*x - 12*x*x + 3) * eigenPsi[0][i];
-			eigenPsi[5][i] = (1/Math.sqrt(60)) * (4*x*x*x*x*x - 20*x*x*x + 15*x) * eigenPsi[0][i];
-			eigenPsi[6][i] = (1/Math.sqrt(720)) * (8*x*x*x*x*x*x - 60*x*x*x*x + 90*x*x - 15) * eigenPsi[0][i];
-			eigenPsi[7][i] = (1/Math.sqrt(36*70)) * (8*x*x*x*x*x*x*x - 84*x*x*x*x*x + 210*x*x*x - 105*x) * eigenPsi[0][i];
-		}
-		// Initialize amplitudes and phases:
-		for (var n=0; n<=nMax; n++) {
-			amplitude[n] = 0;
-			phase[n] = 0;
-		}
-		amplitude[0] = 1/Math.sqrt(2);
-		amplitude[1] = 1/Math.sqrt(2);
-		// Initialize array of colors to represent phases:
-		for (var c=0; c<=nColors; c++) {
-			phaseColor[c] = colorString(c/nColors);
-		}
-	}
+            <!-- Preset States -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Preset Quantum States</h3>
+                </div>
 
-	function nextFrame() {
-		for (var n=0; n<=nMax; n++) {
-			phase[n] -= (n+0.5) * Number(speedSlider.value);
-			if (phase[n] < 0) phase[n] += 2*Math.PI;
-		}
-		buildPsi();
-		paintCanvas();
-		if (running) window.setTimeout(nextFrame, 1000/30);
-	}
+                <div class="preset-grid">
+                    <button class="preset-btn" onclick="setGroundState()">Ground (n=0)</button>
+                    <button class="preset-btn" onclick="setFirstExcited()">Excited (n=1)</button>
+                    <button class="preset-btn" onclick="setSuperposition()">Superposition</button>
+                    <button class="preset-btn" onclick="coherent()">Coherent</button>
+                    <button class="preset-btn" onclick="setEqualMix()">Equal Mix</button>
+                    <button class="preset-btn" onclick="setHighEnergy()">High Energy</button>
+                </div>
+            </div>
 
-	function buildPsi() {
-		for (var i=0; i<=iMax; i++) {
-			psi.re[i] = 0;
-			psi.im[i] = 0;
-		}
-		for (var n=0; n<=nMax; n++) {
-			var realPart = amplitude[n] * Math.cos(phase[n]);
-			var imagPart = amplitude[n] * Math.sin(phase[n]);
-			for (var i=0; i<=iMax; i++) {
-				psi.re[i] += realPart * eigenPsi[n][i];
-				psi.im[i] += imagPart * eigenPsi[n][i];
-			}
-		}
-	}
+            <!-- Individual State Control -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🎚️</div>
+                    <h3 class="card-title">State Amplitudes</h3>
+                </div>
+                <div id="stateControls"></div>
+            </div>
+        </div>
 
-	function setMouseClock(relX, relY) {	// parameters are x,y in pixels, relative to clock center
-		mouseIsDown = true;
-		var pixelDistance = Math.sqrt(relX*relX + relY*relY);
-		amplitude[mouseClock] = Math.min(pixelDistance / clockPixelRadius, 1);
-		phase[mouseClock] = Math.atan2(relY, relX);
-		if (phase[mouseClock] < 0) phase[mouseClock] += 2*Math.PI;
-		buildPsi();
-		paintCanvas();
-	}
+        <!-- Center Panel - Visualization -->
+        <div class="center-panel">
 
-	function mouseOrTouchStart(pageX, pageY, e) {
-		if (pageY-theCanvas.offsetTop > theCanvas.height - clockSpaceHeight) {
-			mouseClock = Math.floor((pageX - theCanvas.offsetLeft) / clockSpaceHeight);
-			var clockCenterX = clockSpaceHeight * (mouseClock + 0.5);	// relative to left of canvas
-			var clockCenterY = theCanvas.height - clockSpaceHeight*0.5;	// relative to top of canvas
-			var relX = pageX - theCanvas.offsetLeft - clockCenterX;
-			var relY = clockCenterY - (pageY - theCanvas.offsetTop) ;	// measured up from clock center
-			if (relX*relX + relY*relY <= clockPixelRadius*clockPixelRadius) {
-				setMouseClock(relX, relY);
-				e.preventDefault();
-			}
-		}
-	}
+            <!-- Main Canvas -->
+            <div class="canvas-container">
+                <canvas id="theCanvas" width="800" height="400"></canvas>
 
-	function mouseOrTouchMove(pageX, pageY, e) {
-		if (mouseIsDown) {
-			var clockCenterX = clockSpaceHeight * (mouseClock + 0.5);	// relative to left of canvas
-			var clockCenterY = theCanvas.height - clockSpaceHeight*0.5;	// relative to top of canvas
-			var relX = pageX - theCanvas.offsetLeft - clockCenterX;
-			var relY = clockCenterY - (pageY - theCanvas.offsetTop) ;	// measured up from clock center
-			setMouseClock(relX, relY);
-			e.preventDefault();
-		}
-	}
+                <div class="phasor-info">
+                    <span class="phasor-info-icon">💡</span>
+                    <span class="phasor-info-text">Click and drag on the phasor clocks below to adjust amplitude and
+                        phase of each eigenstate!</span>
+                </div>
+            </div>
 
-	function mouseDown(e) {
-		mouseOrTouchStart(e.pageX, e.pageY, e);
-	}
+            <!-- Display Options -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">👁️</div>
+                    <h3 class="card-title">Visualization Mode</h3>
+                </div>
 
-	function touchStart(e) {
-		mouseOrTouchStart(e.targetTouches[0].pageX, e.targetTouches[0].pageY, e);
-	}
+                <div class="display-toggle">
+                    <button class="toggle-btn" id="realImagBtn" onclick="setDisplayMode('realImag')">
+                        📈 Real/Imaginary
+                    </button>
+                    <button class="toggle-btn active" id="densityPhaseBtn" onclick="setDisplayMode('densityPhase')">
+                        🌈 Density/Phase
+                    </button>
+                </div>
 
-	function mouseMove(e) {
-		mouseOrTouchMove(e.pageX, e.pageY, e);
-	}
+                <div style="margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <div class="formula-box">
+                        <div class="formula">ψ(x,t) = Σ cₙψₙ(x)e<sup>-iEₙt/ℏ</sup></div>
+                        <div class="formula-label">Wave Function</div>
+                    </div>
+                    <div class="formula-box">
+                        <div class="formula">Eₙ = ℏω(n + ½)</div>
+                        <div class="formula-label">Energy Quantization</div>
+                    </div>
+                </div>
+            </div>
 
-	function touchMove(e) {
-		mouseOrTouchMove(e.targetTouches[0].pageX, e.targetTouches[0].pageY, e);
-	}
+            <!-- Mouse Feedback -->
+            <div class="card" id="mouseFeedback" style="display: none;">
+                <div class="card-header">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Current Selection</h3>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 2rem; color: var(--primary);" id="selectedN">0</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">State (n)</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; color: var(--accent);" id="selectedMag">0.000</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">Magnitude</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; color: var(--success);" id="selectedPhase">0°</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">Phase</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-	function mouseUp(e) {
-		mouseIsDown = false;
-		paintCanvas();
-	}
+        <!-- Right Panel - Info & Data -->
+        <div class="right-panel">
+            <!-- Instructions -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📖</div>
+                    <h3 class="card-title">How to Use</h3>
+                </div>
 
-	function paintCanvas() {
-		theContext.fillStyle = "black";
-		theContext.fillRect(0, 0, theCanvas.width, theCanvas.height);
-		
-		var baselineY, pxPerY;
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Use the <strong>Speed slider</strong> to control animation rate</div>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Click <strong>phasor clocks</strong> at bottom to set amplitude/phase</div>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Try <strong>preset states</strong> to see different quantum behaviors</div>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Switch between <strong>Real/Imag</strong> and <strong>Density/Phase</strong>
+                        views</div>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Observe how <strong>coherent states</strong> behave like classical
+                        oscillators!</div>
+                </div>
+            </div>
 
-		if (realImag.checked) {
-			baselineY = theCanvas.height * (1 - clockSpaceFraction) / 2;
-			pxPerY = baselineY * 0.9;
 
-			// Draw the horizontal axis:
-			theContext.strokeStyle = "gray";
-			theContext.lineWidth = 1;
-			theContext.beginPath();
-			theContext.moveTo(0, baselineY);
-			theContext.lineTo(theCanvas.width, baselineY);
-			theContext.stroke();
+            <!-- Live Data -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Live Quantum Data</h3>
+                </div>
 
-			theContext.lineWidth = 2;
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>State (n)</th>
+                            <th>Amplitude</th>
+                            <th>|cₙ|²</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataTableBody">
+                    </tbody>
+                </table>
 
-			// Plot the real part of psi:
-			theContext.beginPath();
-			theContext.moveTo(0, baselineY - psi.re[0]*pxPerY);
-			for (var i=1; i<=iMax; i++) {
-				theContext.lineTo(i, baselineY - psi.re[i]*pxPerY);
-			}
-			theContext.strokeStyle = "#ffc000";
-			theContext.stroke();
+                <div style="margin-top: 1rem;">
+                    <div class="control-label">
+                        <span>Total Probability</span>
+                        <span class="control-value" id="totalProb">1.000</span>
+                    </div>
+                    <div class="energy-bar">
+                        <div class="energy-fill" id="probBar" style="width: 100%;"></div>
+                    </div>
+                </div>
 
-			// Plot the imaginary part of psi:
-			theContext.beginPath();
-			theContext.moveTo(0, baselineY - psi.im[0]*pxPerY);
-			for (var i=1; i<=iMax; i++) {
-				theContext.lineTo(i, baselineY - psi.im[i]*pxPerY);
-			}
-			theContext.strokeStyle = "#00d0ff";
-			theContext.stroke();
+                <div style="margin-top: 0.75rem;">
+                    <div class="control-label">
+                        <span>Expected Energy ⟨E⟩</span>
+                        <span class="control-value" id="avgEnergy">0.500 ℏω</span>
+                    </div>
+                </div>
+            </div>
 
-		} else {	// "Density/phase" is checked
 
-			// Plot the probability distribution with phase as color:
-			baselineY = theCanvas.height * (1 - clockSpaceFraction);
-			pxPerY = baselineY * 0.55;
-			theContext.lineWidth = 2;
-			for (var i=0; i<=iMax; i++) {
-				theContext.beginPath();
-				theContext.moveTo(i, baselineY);
-				theContext.lineTo(i, baselineY - pxPerY*(psi.re[i]*psi.re[i] + psi.im[i]*psi.im[i]));
-				var localPhase = Math.atan2(psi.im[i], psi.re[i]);
-				if (localPhase < 0) localPhase += 2*Math.PI;
-				theContext.strokeStyle = phaseColor[Math.round(localPhase * nColors / (2*Math.PI))];
-				theContext.stroke();
-			}
-		}
 
-		// Draw the eigen-phasor diagrams:
-		var phasorSpace = theCanvas.height * clockSpaceFraction;
-		var clockRadius = phasorSpace * clockRadiusFraction;
-		for (var n=0; n<=nMax; n++) {
-			theContext.strokeStyle = "gray";
-			theContext.lineWidth = 1;
-			theContext.beginPath();
-			var centerX = (n+0.5)*phasorSpace;
-			var centerY = theCanvas.height - 0.5*phasorSpace;
-			theContext.arc(centerX, centerY, clockRadius, 0, 2*Math.PI);
-			theContext.stroke();
-			theContext.beginPath();
-			theContext.moveTo(centerX, centerY);
-			var clockHandX = centerX + clockRadius*amplitude[n]*Math.cos(phase[n]);
-			var clockHandY = centerY - clockRadius*amplitude[n]*Math.sin(phase[n]);
-			theContext.lineTo(clockHandX, clockHandY);
-			theContext.strokeStyle = phaseColor[Math.round(phase[n] * nColors / (2*Math.PI))];
-			theContext.lineWidth = 3;
-			theContext.stroke();
-		}
+            <!-- Theory Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🔬</div>
+                    <h3 class="card-title">Key Concepts</h3>
+                </div>
 
-		// Provide feedback when setting an amplitude:
-		if (mouseIsDown) {
-			theContext.fillStyle = "#a0a0a0";
-			theContext.font = "20px monospace";
-			theContext.fillText("n = " + mouseClock, 100, 30);
-			var amp = amplitude[mouseClock];
-			var ph = phase[mouseClock];
-			theContext.fillText("Mag = " + Number(amp).toFixed(3), 195, 30);
-			var deg = String.fromCharCode(parseInt('00b0',16));		// degree symbol
-			theContext.fillText("Phase = " + Math.round(ph*180/Math.PI) + deg, 360, 30);
-			//theContext.fillText("Re = " + Number(amp*Math.cos[ph]).toFixed(3), 180, 30);
-		}
-	}
+                <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6;">
+                    <p style="margin-bottom: 0.75rem;">
+                        <strong style="color: var(--accent);">Quantum Superposition:</strong>
+                        The wave function can be a combination of multiple energy eigenstates.
+                    </p>
+                    <p style="margin-bottom: 0.75rem;">
+                        <strong style="color: var(--primary-light);">Energy Quantization:</strong>
+                        Energy levels are discrete: E₀ = ½ℏω, E₁ = 3/2ℏω, etc.
+                    </p>
+                    <p>
+                        <strong style="color: var(--success);">Coherent States:</strong>
+                        Special quantum states that most closely resemble classical oscillation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	function startStop() {
-		running = !running;
-		if (running) {
-			pauseButton.innerHTML = "Pause";
-			nextFrame();
-		} else {
-			pauseButton.innerHTML = "Resume";
-		}
-	}
-
-	function zero() {
-		for (var n=0; n<=nMax; n++) {
-			amplitude[n] = 0;
-		}
-		buildPsi();
-		paintCanvas();
-	}
-
-	function normalizePsi() {
-		var norm2 = 0;
-		for (var n=0; n<=nMax; n++) {
-			norm2 += amplitude[n] * amplitude[n];
-		}
-		if (norm2 > 0) {
-			for (var n=0; n<=nMax; n++) {
-				amplitude[n] /= Math.sqrt(norm2);
-			}
-			buildPsi();
-			paintCanvas();
-		}
-	}
-
-	function coherent() {
-		var alphaMag = Number(alphaSlider.value);
-		var nFact = 1;
-		for (var n=0; n<=nMax; n++) {
-			if (n > 0) nFact *= n;
-			amplitude[n] = Math.pow(alphaMag, n) / Math.sqrt(nFact);
-			phase[n] = 0;
-		}
-		normalizePsi();
-	}
-
-	function adjustAlpha() {
-		alphaReadout.innerHTML = Number(alphaSlider.value).toFixed(1);
-	}
-
-	// Function to convert a number to a two-digit hex string (from stackoverflow):
-	function twoDigitHex(c) {
-		var hex = c.toString(16);
-		return hex.length == 1 ? "0" + hex : hex;
-	}
-
-	// Function to create a hex color string for a given hue (between 0 and 1):
-	function colorString(hue) {
-		var r, g, b;
-		if (hue < 1/6) {
-			r = 255; g = Math.round(hue*6*255); b = 0;			// red to yellow
-		} else if (hue < 1/3) {
-			r = Math.round((1/3 - hue)*6*255); g = 255; b = 0;	// yellow to green
-		} else if (hue < 1/2) {
-			r = 0; g = 255; b = Math.round((hue - 1/3)*6*255);	// green to cyan
-		} else if (hue < 2/3) {
-			r = 0; g = Math.round((2/3 - hue)*6*255); b = 255;	// cyan to blue
-		} else if (hue < 5/6) {
-			r = Math.round((hue - 2/3)*6*255); g = 0; b = 255;	// blue to magenta
-		} else {
-			r = 255; g = 0; b = Math.round((1 - hue)*6*255);	// magenta to red
-		}
-		return "#" + twoDigitHex(r) + twoDigitHex(g) + twoDigitHex(b);
-	}
-
-</script>
+    <script src="./js/script.js"></script>
 
 </body>
 
