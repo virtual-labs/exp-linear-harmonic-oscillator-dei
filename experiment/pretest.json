@@ -2,71 +2,113 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "1. What is the expression for reduced mass, μ for two particles in a system of mass m1 and m2?",
+      "question": "1. What is the ground state energy of a quantum harmonic oscillator?",
       "answers": {
-        "a": "μ = m1m2",
-        "b": "μ = (m1 × m2) / (m1 + m2)",
-        "c": "μ = m1 + m2",
-        "d": "μ = (m1 + m2) / (m1 × m2)"
+        "a": "E₀ = 0",
+        "b": "E₀ = ½ℏω (zero-point energy)",
+        "c": "E₀ = ℏω",
+        "d": "E₀ = 2ℏω"
       },
       "explanations": {
-        "b": "Correct. Reduced mass is μ = (m1 × m2)/(m1 + m2).  <a href='https://www.toppr.com/ask/question/two-particle-of-masses-m1-and-m2-are-joined-by-a-light-rigid-rod-of/'>here</a>"
+        "b": "Correct! Unlike classical mechanics, the quantum harmonic oscillator has a minimum energy of ½ℏω, called zero-point energy. The particle can never be completely at rest."
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "2. What is the ground state energy of the quantum mechanical harmonic oscillator?",
+      "question": "2. What is the formula for the energy of the nth quantum state of a harmonic oscillator?",
       "answers": {
-        "a": "E₀ = hν/2",
-        "b": "E₀ = 0",
-        "c": "E₀ = hν",
-        "d": "E₀ = ν/2"
+        "a": "Eₙ = nℏω",
+        "b": "Eₙ = (n + ½)ℏω",
+        "c": "Eₙ = n²ℏω",
+        "d": "Eₙ = ℏω/n"
       },
       "explanations": {
-        "a": "Correct. Ground state energy of a quantum harmonic oscillator is (1/2)hν. <a href='https://homework.study.com/explanation/the-ground-state-energy-of-a-harmonic-oscillator-is-5-60ev...'>here</a>"
-      },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "3. For a quantum harmonic oscillator, what is the formula for the energy of the nth state?",
-      "answers": {
-        "a": "En = nhν",
-        "b": "En = (n + 1/2)hν",
-        "c": "En = n²hν",
-        "d": "En = hν / n"
-      },
-      "explanations": {
-        "b": "Correct. Quantum harmonic oscillator energy levels are En = (n + 1/2)hν."
+        "b": "Correct! The energy levels are Eₙ = (n + ½)ℏω where n = 0, 1, 2, 3... This means energy levels are equally spaced by ℏω."
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "4. What does the wavefunction of the first excited state (n = 1) of the harmonic oscillator contain?",
+      "question": "3. How many nodes does the wavefunction ψₙ(x) have for a quantum harmonic oscillator in state n?",
       "answers": {
-        "a": "No nodes",
-        "b": "Exactly one node",
-        "c": "Two nodes",
-        "d": "Infinitely many nodes"
+        "a": "0 nodes for all states",
+        "b": "n nodes",
+        "c": "n + 1 nodes",
+        "d": "2n nodes"
       },
       "explanations": {
-        "b": "Correct. The nth state of the harmonic oscillator has n nodes. For n=1, there is one node."
+        "b": "Correct! The wavefunction for state n has exactly n nodes (zero crossings). For example, n=0 has 0 nodes, n=1 has 1 node, n=2 has 2 nodes, etc."
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "5. In a linear harmonic oscillator, what determines the frequency of oscillation?",
+      "question": "4. What determines the angular frequency ω of a harmonic oscillator?",
       "answers": {
-        "a": "Mass only",
-        "b": "Amplitude only",
-        "c": "Spring constant (k) and mass (m)",
-        "d": "Energy level only"
+        "a": "Only the amplitude",
+        "b": "Only the energy level",
+        "c": "The spring constant k and mass m (ω = √(k/m))",
+        "d": "Only the initial phase"
       },
       "explanations": {
-        "c": "Correct. The frequency is ω = √(k/m), determined by spring constant and mass."
+        "c": "Correct! The angular frequency is ω = √(k/m), determined by the spring constant (k) and the mass of the particle (m). It does not depend on amplitude or energy."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. What is a 'coherent state' in quantum mechanics?",
+      "answers": {
+        "a": "A state with zero energy",
+        "b": "A quantum state that most closely resembles classical harmonic oscillation",
+        "c": "A state with maximum uncertainty",
+        "d": "A state that never changes with time"
+      },
+      "explanations": {
+        "b": "Correct! Coherent states are special quantum states where the probability density oscillates back and forth like a classical particle, while maintaining minimum uncertainty."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "6. What type of polynomial functions appear in the harmonic oscillator wavefunctions?",
+      "answers": {
+        "a": "Legendre polynomials",
+        "b": "Hermite polynomials",
+        "c": "Chebyshev polynomials",
+        "d": "Bessel polynomials"
+      },
+      "explanations": {
+        "b": "Correct! The quantum harmonic oscillator wavefunctions contain Hermite polynomials Hₙ(x), multiplied by a Gaussian envelope e^(-x²/2)."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "7. In a quantum superposition of harmonic oscillator states, what does |cₙ|² represent?",
+      "answers": {
+        "a": "The energy of state n",
+        "b": "The phase of state n",
+        "c": "The probability of measuring the system in state n",
+        "d": "The frequency of state n"
+      },
+      "explanations": {
+        "c": "Correct! When the wavefunction is ψ = Σcₙψₙ, the quantity |cₙ|² gives the probability of finding the system in eigenstate n upon measurement."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "8. What is the spacing between adjacent energy levels in a quantum harmonic oscillator?",
+      "answers": {
+        "a": "It decreases with increasing n",
+        "b": "It increases with increasing n",
+        "c": "It remains constant at ℏω",
+        "d": "It varies randomly"
+      },
+      "explanations": {
+        "c": "Correct! The energy levels Eₙ = (n + ½)ℏω are equally spaced. The difference between Eₙ₊₁ and Eₙ is always ℏω, regardless of the value of n."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
