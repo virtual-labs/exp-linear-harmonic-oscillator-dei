@@ -112,6 +112,34 @@
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
+    },
+    {
+      "question": "9. What is the normalization condition for a quantum wavefunction?",
+      "answers": {
+        "a": "The sum of all amplitudes must equal 1",
+        "b": "The sum of all probability densities integrated over all space must equal 1",
+        "c": "The maximum amplitude must be 1",
+        "d": "The phase must be zero"
+      },
+      "explanations": {
+        "b": "Correct! For a normalized wavefunction, ∫|ψ(x)|²dx = 1, which means the total probability of finding the particle somewhere in space is 1. For discrete states, this becomes Σ|cₙ|² = 1."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "10. Why can't a quantum harmonic oscillator have zero energy?",
+      "answers": {
+        "a": "Because of energy conservation",
+        "b": "Because of the Heisenberg uncertainty principle",
+        "c": "Because of the Pauli exclusion principle",
+        "d": "Because of relativistic effects"
+      },
+      "explanations": {
+        "b": "Correct! The Heisenberg uncertainty principle (ΔxΔp ≥ ℏ/2) prevents both position and momentum from being exactly zero simultaneously. This results in a minimum zero-point energy of ½ℏω."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
     }
   ]
 }
