@@ -1,5 +1,3 @@
-## Theory: Quantum Harmonic Oscillator
-
 ### Introduction
 
 Oscillations are a ubiquitous phenomenon observed in various natural systems, from vibrating molecules to celestial bodies. Understanding the behavior of oscillating systems is crucial in physics, as it provides insights into the fundamental principles governing the dynamics of particles and waves.
@@ -155,11 +153,3 @@ In this virtual lab simulation, you can visualize:
 3. **Phasor Clocks:** Each clock represents an eigenstate's amplitude and phase. The hand length shows amplitude, and the angle shows phase.
 
 4. **Time Evolution:** Each eigenstate rotates at a frequency proportional to its energy (n + ½)ω
-
----
-
-### References
-
-1. Griffiths, D.J. "Introduction to Quantum Mechanics" (Cambridge University Press)
-2. Sakurai, J.J. "Modern Quantum Mechanics" (Pearson)
-3. Schroeder, D.V. "Quantum Harmonic Oscillator Simulation"

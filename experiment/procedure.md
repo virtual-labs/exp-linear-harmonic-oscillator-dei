@@ -1,11 +1,3 @@
-## Procedure: Quantum Harmonic Oscillator Simulation
-
-### Getting Started
-
-Before you begin, ensure you understand the basic concepts of quantum mechanics and the harmonic oscillator from the Theory section.
-
----
-
 ### Step 1: Understanding the Interface
 
 When you open the simulation, you will see three main panels:
