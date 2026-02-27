@@ -40,11 +40,11 @@ The theoretical foundation of the quantum oscillator is rooted in the **Schrödi
 **-ℏ²/2m · d²ψ/dx² + ½mω²x²ψ = Eψ**
 
 where:
-- **ℏ** is the reduced Planck constant (h/2π)
-- **m** is the mass of the particle
-- **ω** is the angular frequency of the oscillator potential
-- **E** represents the energy eigenvalues
-- **ψ(x)** denotes the wavefunction
+- **ℏ** is the reduced Planck constant (h/2π).
+- **m** is the mass of the particle.
+- **ω** is the angular frequency of the oscillator potential.
+- **E** represents the energy eigenvalues.
+- **ψ(x)** denotes the probability amplitude wave function.
 
 ---
 
@@ -114,7 +114,7 @@ where:
 
 ### 6. Coherent States
 
-**Coherent states** are special quantum states that most closely resemble classical harmonic oscillation. They are characterized by:
+**Coherent states** are special quantum states that most closely resemble classical harmonic oscillations. They are characterized by:
 
 - Minimum uncertainty product: **ΔxΔp = ℏ/2**
 - The probability density oscillates back and forth like a classical particle
@@ -137,7 +137,6 @@ In the simulation, you can create coherent states using the **Coherent(α)** but
 <tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Energy</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Continuous</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Quantized (discrete levels)</td></tr>
 <tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Ground State</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">E = 0 possible</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">E₀ = ½ℏω (zero-point energy)</td></tr>
 <tr style="background-color: #f8f9fa;"><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Position</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Definite trajectory</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Probability distribution</td></tr>
-<tr><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Wave Nature</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">No</td><td style="padding: 8px; border: 1px solid #ddd; text-align: center;">Yes (wavefunction)</td></tr>
 </table>
 
 ---
