@@ -1,0 +1,145 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. What is the ground state energy of a quantum harmonic oscillator?",
+      "answers": {
+        "a": "E₀ = 0",
+        "b": "E₀ = ½ℏω (zero-point energy)",
+        "c": "E₀ = ℏω",
+        "d": "E₀ = 2ℏω"
+      },
+      "explanations": {
+        "b": "Correct! Unlike classical mechanics, the quantum harmonic oscillator has a minimum energy of ½ℏω, called zero-point energy. The particle can never be completely at rest."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. What is the formula for the energy of the nth quantum state of a harmonic oscillator?",
+      "answers": {
+        "a": "Eₙ = nℏω",
+        "b": "Eₙ = (n + ½)ℏω",
+        "c": "Eₙ = n²ℏω",
+        "d": "Eₙ = ℏω/n"
+      },
+      "explanations": {
+        "b": "Correct! The energy levels are Eₙ = (n + ½)ℏω where n = 0, 1, 2, 3... This means energy levels are equally spaced by ℏω."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. How many nodes does the wavefunction ψₙ(x) have for a quantum harmonic oscillator in state n?",
+      "answers": {
+        "a": "0 nodes for all states",
+        "b": "n nodes",
+        "c": "n + 1 nodes",
+        "d": "2n nodes"
+      },
+      "explanations": {
+        "b": "Correct! The wavefunction for state n has exactly n nodes (zero crossings). For example, n=0 has 0 nodes, n=1 has 1 node, n=2 has 2 nodes, etc."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. What determines the angular frequency ω of a harmonic oscillator?",
+      "answers": {
+        "a": "Only the amplitude",
+        "b": "Only the energy level",
+        "c": "The spring constant k and mass m (ω = √(k/m))",
+        "d": "Only the initial phase"
+      },
+      "explanations": {
+        "c": "Correct! The angular frequency is ω = √(k/m), determined by the spring constant (k) and the mass of the particle (m). It does not depend on amplitude or energy."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. What is a 'coherent state' in quantum mechanics?",
+      "answers": {
+        "a": "A state with zero energy",
+        "b": "A quantum state that most closely resembles classical harmonic oscillation",
+        "c": "A state with maximum uncertainty",
+        "d": "A state that never changes with time"
+      },
+      "explanations": {
+        "b": "Correct! Coherent states are special quantum states where the probability density oscillates back and forth like a classical particle, while maintaining minimum uncertainty."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "6. What type of polynomial functions appear in the harmonic oscillator wavefunctions?",
+      "answers": {
+        "a": "Legendre polynomials",
+        "b": "Hermite polynomials",
+        "c": "Chebyshev polynomials",
+        "d": "Bessel polynomials"
+      },
+      "explanations": {
+        "b": "Correct! The quantum harmonic oscillator wavefunctions contain Hermite polynomials Hₙ(x), multiplied by a Gaussian envelope e^(-x²/2)."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "7. In a quantum superposition of harmonic oscillator states, what does |cₙ|² represent?",
+      "answers": {
+        "a": "The energy of state n",
+        "b": "The phase of state n",
+        "c": "The probability of measuring the system in state n",
+        "d": "The frequency of state n"
+      },
+      "explanations": {
+        "c": "Correct! When the wavefunction is ψ = Σcₙψₙ, the quantity |cₙ|² gives the probability of finding the system in eigenstate n upon measurement."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "8. What is the spacing between adjacent energy levels in a quantum harmonic oscillator?",
+      "answers": {
+        "a": "It decreases with increasing n",
+        "b": "It increases with increasing n",
+        "c": "It remains constant at ℏω",
+        "d": "It varies randomly"
+      },
+      "explanations": {
+        "c": "Correct! The energy levels Eₙ = (n + ½)ℏω are equally spaced. The difference between Eₙ₊₁ and Eₙ is always ℏω, regardless of the value of n."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "9. What is the normalization condition for a quantum wavefunction?",
+      "answers": {
+        "a": "The sum of all amplitudes must equal 1",
+        "b": "The sum of all probability densities integrated over all space must equal 1",
+        "c": "The maximum amplitude must be 1",
+        "d": "The phase must be zero"
+      },
+      "explanations": {
+        "b": "Correct! For a normalized wavefunction, ∫|ψ(x)|²dx = 1, which means the total probability of finding the particle somewhere in space is 1. For discrete states, this becomes Σ|cₙ|² = 1."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "10. Why can't a quantum harmonic oscillator have zero energy?",
+      "answers": {
+        "a": "Because of energy conservation",
+        "b": "Because of the Heisenberg uncertainty principle",
+        "c": "Because of the Pauli exclusion principle",
+        "d": "Because of relativistic effects"
+      },
+      "explanations": {
+        "b": "Correct! The Heisenberg uncertainty principle (ΔxΔp ≥ ℏ/2) prevents both position and momentum from being exactly zero simultaneously. This results in a minimum zero-point energy of ½ℏω."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    }
+  ]
+}

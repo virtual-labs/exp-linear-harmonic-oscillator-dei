@@ -1,0 +1,145 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. After using the simulation, what did you observe when you set the coherent state with α = 3?",
+      "answers": {
+        "a": "The wavefunction remained stationary",
+        "b": "The probability density oscillated back and forth like a classical particle",
+        "c": "The wavefunction disappeared",
+        "d": "Only the ground state was visible"
+      },
+      "explanations": {
+        "b": "Correct! Coherent states with higher α values show classical-like oscillation, where the probability density (wave packet) moves back and forth like a classical harmonic oscillator."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. In the simulation, when you switched between Real/Imaginary and Density/Phase views, what did the color represent in Density/Phase mode?",
+      "answers": {
+        "a": "The energy of the state",
+        "b": "The amplitude of the wavefunction",
+        "c": "The local phase of the wavefunction",
+        "d": "The probability density"
+      },
+      "explanations": {
+        "c": "Correct! In Density/Phase mode, the height represents the probability density |ψ|², while the color represents the local phase of the wavefunction at each point."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "3. When you set the 'First Excited (n=1)' preset, what was the Expected Energy shown in the Live Data panel?",
+      "answers": {
+        "a": "0.500 ℏω",
+        "b": "1.000 ℏω",
+        "c": "1.500 ℏω",
+        "d": "2.000 ℏω"
+      },
+      "explanations": {
+        "c": "Correct! For n=1, the energy is E₁ = (1 + ½)ℏω = 1.5ℏω = 1.500 ℏω."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. In the phasor clock representation, what did the length of the clock hand represent?",
+      "answers": {
+        "a": "The phase of that eigenstate",
+        "b": "The energy of that eigenstate",
+        "c": "The amplitude (coefficient magnitude) of that eigenstate",
+        "d": "The frequency of that eigenstate"
+      },
+      "explanations": {
+        "c": "Correct! The phasor clock hand length represents the amplitude |cₙ| of that eigenstate in the superposition. The angle of the hand represents the phase."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "5. What happened to the Total Probability value when you clicked the 'Normalize' button?",
+      "answers": {
+        "a": "It became 0",
+        "b": "It became 1.000",
+        "c": "It became undefined",
+        "d": "It doubled"
+      },
+      "explanations": {
+        "b": "Correct! The Normalize button adjusts all amplitudes so that Σ|cₙ|² = 1, which is required for a properly normalized quantum wavefunction. This ensures total probability equals 1."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "6. When you observed the superposition of n=0 and n=1 states, why did the probability density oscillate?",
+      "answers": {
+        "a": "Because of numerical errors in the simulation",
+        "b": "Because the two states have different energies and thus different time evolution phases",
+        "c": "Because the amplitude changes randomly",
+        "d": "Because the simulation is in Real/Imaginary mode"
+      },
+      "explanations": {
+        "b": "Correct! Different energy eigenstates evolve with different phases (e^(-iEₙt/ℏ)). When they have different energies, their interference pattern changes with time, causing the probability density to oscillate."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "7. What did you observe about the speed of phasor clock rotation for higher energy states (larger n)?",
+      "answers": {
+        "a": "All clocks rotated at the same speed",
+        "b": "Higher n states rotated slower",
+        "c": "Higher n states rotated faster",
+        "d": "Only even n states rotated"
+      },
+      "explanations": {
+        "c": "Correct! The rotation frequency is proportional to (n + ½)ω. Higher n means higher energy and faster phase rotation. This is why superpositions of different n states show time-dependent interference."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "8. Based on your observations, which statement correctly describes the difference between classical and quantum harmonic oscillators?",
+      "answers": {
+        "a": "Both have continuous energy levels",
+        "b": "Classical can have zero energy, quantum cannot (has zero-point energy)",
+        "c": "Both have the same ground state energy",
+        "d": "Quantum has no wavefunction"
+      },
+      "explanations": {
+        "b": "Correct! A classical oscillator can have zero energy (at rest), but a quantum oscillator always has a minimum zero-point energy of ½ℏω. This is a fundamental difference arising from the Heisenberg uncertainty principle."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "9. When you created a 'Random' state and looked at the live data table, what relationship did you notice between amplitude and probability?",
+      "answers": {
+        "a": "Probability = amplitude",
+        "b": "Probability = amplitude squared (|cₙ|²)",
+        "c": "Probability = square root of amplitude",
+        "d": "They are unrelated"
+      },
+      "explanations": {
+        "b": "Correct! The probability of each state is the square of its amplitude: Probability = |cₙ|². This is the Born rule, a fundamental postulate of quantum mechanics."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "10. What did you learn about quantum superposition from this simulation?",
+      "answers": {
+        "a": "A quantum system can only be in one state at a time",
+        "b": "A quantum system can exist as a combination of multiple states simultaneously",
+        "c": "Superposition violates conservation of energy",
+        "d": "Superposition is not visible in the wavefunction"
+      },
+      "explanations": {
+        "b": "Correct! Quantum superposition means a system can exist in a combination (linear superposition) of multiple eigenstates simultaneously, with the wavefunction ψ = Σcₙψₙ. Measurement then 'collapses' it to a specific state with probability |cₙ|²."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    }
+  ]
+}

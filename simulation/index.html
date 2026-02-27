@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Harmonic Oscillator | Virtual Lab</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="bg-animation"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">⚛️</div>
+                <div class="logo-text">
+                    <h1>Quantum Harmonic Oscillator</h1>
+                    <span>Virtual Physics Laboratory</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="status-badge" id="statusBadge">
+                    <span class="status-dot"></span>
+                    <span id="statusText">Running</span>
+                </div>
+                <button class="btn btn-secondary" onclick="resetSimulation()">
+                    🔄 Reset
+                </button>
+                <button class="btn btn-primary" id="playPauseBtn" onclick="startStop()">
+                    ⏸️ Pause
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+
+        <!-- Left Panel - Controls -->
+        <div class="left-panel">
+
+            <!-- Quantum Parameters -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">⚙️</div>
+                    <h3 class="card-title">Quantum Parameters</h3>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Animation Speed</span>
+                        <span class="control-value" id="speedValue">0.05</span>
+                    </div>
+                    <input type="range" id="speedSlider" min="0" max="0.2" step="0.001" value="0.05"
+                        oninput="updateSpeed()">
+                </div>
+
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Coherent State (α)</span>
+                        <span class="control-value" id="alphaValue">1.0</span>
+                    </div>
+                    <input type="range" id="alphaSlider" min="0" max="4" step="0.1" value="1" oninput="updateAlpha()">
+                </div>
+
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Max Energy Level (n)</span>
+                    </div>
+                    <div class="number-input">
+                        <button class="number-btn" onclick="adjustNMax(-1)">−</button>
+                        <input type="number" id="nMaxInput" value="7" min="1" max="10" onchange="updateNMax()">
+                        <button class="number-btn" onclick="adjustNMax(1)">+</button>
+                    </div>
+                </div>
+
+                <!-- Quick Actions inside Quantum Parameters -->
+                <div class="quick-actions">
+                    <button class="action-btn" onclick="zero()">
+                        <span>🗑️</span>
+                        Zero
+                    </button>
+                    <button class="action-btn" onclick="normalizePsi()">
+                        <span>📐</span>
+                        Normalize
+                    </button>
+                    <button class="action-btn" onclick="randomState()">
+                        <span>🎲</span>
+                        Random
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preset States -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Preset Quantum States</h3>
+                </div>
+
+                <div class="preset-grid">
+                    <button class="preset-btn" onclick="setGroundState()">Ground (n=0)</button>
+                    <button class="preset-btn" onclick="setFirstExcited()">Excited (n=1)</button>
+                    <button class="preset-btn" onclick="setSuperposition()">Superposition</button>
+                    <button class="preset-btn" onclick="coherent()">Coherent</button>
+                    <button class="preset-btn" onclick="setEqualMix()">Equal Mix</button>
+                    <button class="preset-btn" onclick="setHighEnergy()">High Energy</button>
+                </div>
+            </div>
+
+            <!-- Individual State Control -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🎚️</div>
+                    <h3 class="card-title">State Amplitudes</h3>
+                </div>
+                <div id="stateControls"></div>
+            </div>
+        </div>
+
+        <!-- Center Panel - Visualization -->
+        <div class="center-panel">
+
+            <!-- Main Canvas -->
+            <div class="canvas-container">
+                <canvas id="theCanvas" width="800" height="400"></canvas>
+
+                <div class="phasor-info">
+                    <span class="phasor-info-icon">💡</span>
+                    <span class="phasor-info-text">Click and drag on the phasor clocks below to adjust amplitude and
+                        phase of each eigenstate!</span>
+                </div>
+            </div>
+
+            <!-- Display Options -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">👁️</div>
+                    <h3 class="card-title">Visualization Mode</h3>
+                </div>
+
+                <div class="display-toggle">
+                    <button class="toggle-btn" id="realImagBtn" onclick="setDisplayMode('realImag')">
+                        📈 Real/Imaginary
+                    </button>
+                    <button class="toggle-btn active" id="densityPhaseBtn" onclick="setDisplayMode('densityPhase')">
+                        🌈 Density/Phase
+                    </button>
+                </div>
+
+                <div style="margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <div class="formula-box">
+                        <div class="formula">ψ(x,t) = Σ cₙψₙ(x)e<sup>-iEₙt/ℏ</sup></div>
+                        <div class="formula-label">Wave Function</div>
+                    </div>
+                    <div class="formula-box">
+                        <div class="formula">Eₙ = ℏω(n + ½)</div>
+                        <div class="formula-label">Energy Quantization</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mouse Feedback -->
+            <div class="card" id="mouseFeedback" style="display: none;">
+                <div class="card-header">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Current Selection</h3>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 2rem; color: var(--primary);" id="selectedN">0</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">State (n)</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; color: var(--accent);" id="selectedMag">0.000</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">Magnitude</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; color: var(--success);" id="selectedPhase">0°</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">Phase</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Info & Data -->
+        <div class="right-panel">
+            <!-- Instructions -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📖</div>
+                    <h3 class="card-title">How to Use</h3>
+                </div>
+
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Use the <strong>Speed slider</strong> to control animation rate</div>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Click <strong>phasor clocks</strong> at bottom to set amplitude/phase</div>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Try <strong>preset states</strong> to see different quantum behaviors</div>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Switch between <strong>Real/Imag</strong> and <strong>Density/Phase</strong>
+                        views</div>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Observe how <strong>coherent states</strong> behave like classical
+                        oscillators!</div>
+                </div>
+            </div>
+
+
+            <!-- Live Data -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Live Quantum Data</h3>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>State (n)</th>
+                            <th>Amplitude</th>
+                            <th>|cₙ|²</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataTableBody">
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 1rem;">
+                    <div class="control-label">
+                        <span>Total Probability</span>
+                        <span class="control-value" id="totalProb">1.000</span>
+                    </div>
+                    <div class="energy-bar">
+                        <div class="energy-fill" id="probBar" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 0.75rem;">
+                    <div class="control-label">
+                        <span>Expected Energy ⟨E⟩</span>
+                        <span class="control-value" id="avgEnergy">0.500 ℏω</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Theory Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🔬</div>
+                    <h3 class="card-title">Key Concepts</h3>
+                </div>
+
+                <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6;">
+                    <p style="margin-bottom: 0.75rem;">
+                        <strong style="color: var(--accent);">Quantum Superposition:</strong>
+                        The wave function can be a combination of multiple energy eigenstates.
+                    </p>
+                    <p style="margin-bottom: 0.75rem;">
+                        <strong style="color: var(--primary-light);">Energy Quantization:</strong>
+                        Energy levels are discrete: E₀ = ½ℏω, E₁ = 3/2ℏω, etc.
+                    </p>
+                    <p>
+                        <strong style="color: var(--success);">Coherent States:</strong>
+                        Special quantum states that most closely resemble classical oscillation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+
+<script src="../assets/js/iframeResize.js"></script>
+        
+        </body>
+
+</html>
